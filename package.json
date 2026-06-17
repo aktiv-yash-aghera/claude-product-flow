@@ -1,0 +1,13 @@
+{
+  "name": "claude-product-flow",
+  "version": "1.0.0",
+  "description": "Claude Code skills for Aktiv Software product development",
+  "bin": {
+    "claude-product-flow": "./bin/claude-product-flow.js"
+  },
+  "files": [
+    "bin",
+    "commands"
+  ],
+  "license": "MIT"
+}
