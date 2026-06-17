@@ -1,12 +1,12 @@
 # claude-product-flow
 
-Claude Code skills for Aktiv Software product development. Shared across the team — new skills added here are available to everyone after a `git pull`.
+Claude Code skills for product development teams. Shared across the team — new skills pushed here are available to everyone after a `git pull`.
 
 ## Install
 
 ```bash
-npm install -g github:aktiv-yash-aghera/claude-product-flow
-claude-product-flow setup
+git clone https://github.com/aktiv-yash-aghera/claude-product-flow ~/.claude/claude-product-flow
+cd ~/.claude/claude-product-flow && ./install.sh
 ```
 
 Restart Claude Code. Commands are now available.
@@ -14,9 +14,10 @@ Restart Claude Code. Commands are now available.
 ## Update
 
 ```bash
-npm install -g github:aktiv-yash-aghera/claude-product-flow
-claude-product-flow setup
+cd ~/.claude/claude-product-flow && git pull
 ```
+
+No reinstall needed — commands update automatically on next Claude Code restart.
 
 ## Commands
 
@@ -27,11 +28,11 @@ claude-product-flow setup
 
 ## How It Works
 
-Skills are markdown files in `commands/`. Install symlinks them into `~/.claude/commands/` so Claude Code picks them up. Since they are symlinked, a `git pull` updates them without reinstalling.
+Skills are markdown files in `commands/`. Install symlinks them into `~/.claude/commands/` so Claude Code picks them up. Since they are symlinked, a `git pull` is all that's needed to update.
 
 ## Adding a New Skill
 
 1. Create `commands/<skill-name>.md`
-2. Write the instructions (what Claude should do when the command is invoked)
+2. Write the instructions for Claude
 3. Push to GitHub
 4. Team runs `git pull` to get it
