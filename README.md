@@ -5,7 +5,7 @@ Claude Code skills for Aktiv Software product development. Shared across the tea
 ## Install
 
 ```bash
-npm install -g claude-product-flow
+npm install -g github:aktiv-yash-aghera/claude-product-flow
 claude-product-flow setup
 ```
 
@@ -14,7 +14,7 @@ Restart Claude Code. Commands are now available.
 ## Update
 
 ```bash
-npm update -g claude-product-flow
+npm install -g github:aktiv-yash-aghera/claude-product-flow
 claude-product-flow setup
 ```
 
