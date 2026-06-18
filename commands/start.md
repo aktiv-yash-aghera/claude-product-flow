@@ -31,7 +31,7 @@ Load the module context file before starting any work.
    1. Yes
    2. No
    ```
-   - **1. Yes** — Ask: "What is the reference module directory?" Then search for its context `.md` file and confirm the same way as steps 2–3. Read it and note it as **read-only reference** — development only happens in the primary module. Summarize the reference module in 2–3 bullet points.
+   - **1. Yes** — Ask: "What is the reference module directory?" Then search for its context `.md` file and confirm the same way as steps 2–3. Read it and note it as **read-only reference** — development only happens in the primary module. Summarize the reference module in 2–3 bullet points. Then ask again: "Any other reference module?" — keep repeating this loop until the user says No.
    - **2. No** — Proceed directly.
 
 ## Notes
