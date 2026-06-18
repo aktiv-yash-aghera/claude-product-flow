@@ -25,8 +25,18 @@ Load the module context file before starting any work.
    - **2. No** — Ask: "Please provide the correct file path." Then read that file and summarize as above.
    - **3. Don't have a context file** — Acknowledge and continue without context. Suggest the developer creates one once familiar with the module.
 
+5. After loading the primary context, ask:
+   ```
+   Is there a reference or dependency module I should also be aware of?
+   1. Yes
+   2. No
+   ```
+   - **1. Yes** — Ask: "What is the reference module directory?" Then search for its context `.md` file and confirm the same way as steps 2–3. Read it and note it as **read-only reference** — development only happens in the primary module. Summarize the reference module in 2–3 bullet points.
+   - **2. No** — Proceed directly.
+
 ## Notes
 
 - If multiple `.md` files are found in the directory, list all of them and let the user pick.
-- Keep the summary concise — this is orientation, not documentation.
-- After loading context, confirm you are ready: "Context loaded. What are we working on?"
+- Keep summaries concise — this is orientation, not documentation.
+- The reference module is read-only — make this clear so no edits are made there.
+- After loading all context, confirm you are ready: "Context loaded. What are we working on?"
