@@ -2,5 +2,12 @@
   "name": "claude-product-flow",
   "version": "1.0.0",
   "description": "Claude Code skills for product development teams",
+  "bin": {
+    "claude-product-flow": "./bin/claude-product-flow.js"
+  },
+  "files": [
+    "bin",
+    "commands"
+  ],
   "license": "MIT"
 }
