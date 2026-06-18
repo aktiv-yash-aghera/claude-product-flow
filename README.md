@@ -27,6 +27,7 @@ No reinstall needed — commands update automatically on next Claude Code restar
 | `/commit` | Generate a structured commit message from current changes |
 | `/research` | Explore and validate product feature ideas with live web search |
 | `/flow` | Map a decided feature into the product flow functionally |
+| `/sync` | Sync a feature from one product version to another |
 
 ## How It Works
 
