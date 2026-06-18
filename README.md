@@ -27,6 +27,7 @@ claude-product-flow setup
 | `/research` | Explore and validate product feature ideas with live web search |
 | `/flow` | Map a decided feature into the product flow functionally |
 | `/sync` | Sync a feature from one product version to another |
+| `/doc` | Update the module context file after development is completed |
 
 ## How It Works
 
