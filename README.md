@@ -25,6 +25,8 @@ No reinstall needed — commands update automatically on next Claude Code restar
 |---|---|
 | `/start` | Load module context before starting work |
 | `/commit` | Generate a structured commit message from current changes |
+| `/research` | Explore and validate product feature ideas with live web search |
+| `/flow` | Map a decided feature into the product flow functionally |
 
 ## How It Works
 
