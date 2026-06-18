@@ -5,8 +5,8 @@ Claude Code skills for product development teams. Shared across the team — new
 ## Install
 
 ```bash
-npm install -g github:aktiv-yash-aghera/claude-product-flow
-claude-product-flow setup
+git clone https://github.com/aktiv-yash-aghera/claude-product-flow ~/.claude/claude-product-flow
+cd ~/.claude/claude-product-flow && ./install.sh
 ```
 
 Restart Claude Code. Commands are now available.
@@ -14,9 +14,10 @@ Restart Claude Code. Commands are now available.
 ## Update
 
 ```bash
-npm install -g github:aktiv-yash-aghera/claude-product-flow
-claude-product-flow setup
+cd ~/.claude/claude-product-flow && git pull
 ```
+
+New skills are automatically installed via a post-merge hook — no extra steps needed.
 
 ## Commands
 
