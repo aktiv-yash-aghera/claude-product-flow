@@ -17,14 +17,15 @@ Sync a feature from one version of a module to another. This is feature-based sy
    Feature reference? (commit ID, commit message, or plain description — any works)
    ```
 
-4. Look for a context `.md` file in each directory. Confirm with user for each:
+4. Look for context in each directory — check for `_overview.md` first (new structure), then a single `.md` matching the module name (old structure). Confirm with user for each:
    ```
    Found: `<filename>` — is this the right context file for source/target?
    1. Yes
    2. No (provide path)
    3. Don't have a context file
    ```
-   Read the context `.md` file only — do not read the full module code at this stage.
+   If new structure: also ask if a specific feature context should be loaded (`<area>/<feature>/context.md`) for the feature being synced.
+   Read context files only — do not read the full module code at this stage.
 
 5. Understand the feature from the reference provided:
    - If commit ID: use it to understand what changed and why

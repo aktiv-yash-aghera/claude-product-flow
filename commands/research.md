@@ -16,7 +16,7 @@ Load the product context first, understand what the product does, then proactive
 ## Product Context
 
 1. Ask for the development directory or product description.
-2. Look for a `.md` context file. If found, confirm with user:
+2. Look for a context file — check for `_overview.md` first (new structure), then a single `.md` matching the module name (old structure). If found, confirm with user:
    ```
    Found: `<filename>` — should I use this as product context?
    1. Yes

@@ -8,7 +8,7 @@ Map a decided feature into the existing product flow — functionally only. No t
    (Press Enter to use current directory: <current working directory>)
    ```
 
-2. Find the product context file and confirm with user:
+2. Find the product context file — check for `_overview.md` first (new structure), then look for a single `.md` matching the module name (old structure). Confirm with user:
    ```
    Found: `<filename>` — is this the right context file?
    1. Yes

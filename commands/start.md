@@ -1,4 +1,4 @@
-Load the module context file before starting any work.
+Load the module context before starting any work. Supports both single-file context and feature-level folder structure.
 
 ## Steps
 
@@ -9,7 +9,10 @@ Load the module context file before starting any work.
    ```
    If the user presses Enter or provides no input, use the current working directory.
 
-2. Search that directory and its immediate parent for `.md` files that match the module name (e.g. `ak_odoo_cpq_custom.md`, `ak_odoo_cpq_step_config_18.md`). Ignore generic files like `README.md`, `CHANGELOG.md`.
+2. Detect the context structure in that directory:
+
+   **New structure** — look for `_overview.md`. If found, this module uses feature-level folders (`/scaffold` was run).
+   **Old structure** — look for a `.md` file matching the module name (e.g. `ak_odoo_cpq_custom.md`). Ignore `README.md`, `CHANGELOG.md`.
 
 3. Always confirm with the user — never silently load a file:
    ```
@@ -21,9 +24,23 @@ Load the module context file before starting any work.
    ```
 
 4. Based on the response:
-   - **1. Yes** — Read the file fully. Summarize the module's purpose, key models, and any important rules or constraints in 3–5 bullet points so both you and the developer are oriented.
-   - **2. No** — Ask: "Please provide the correct file path." Then read that file and summarize as above.
-   - **3. Don't have a context file** — Acknowledge and continue without context. Suggest the developer creates one once familiar with the module.
+
+   **New structure (found `_overview.md`):**
+   - Read `_overview.md` fully. Summarize module purpose and feature areas in 3–5 bullet points.
+   - Then ask:
+     ```
+     Load a specific feature context as well?
+     1. Yes — which feature?
+     2. No — overview is enough
+     ```
+   - If Yes: find and read `<area>/<feature>/context.md` for the named feature. Summarize it in 2–3 bullet points.
+
+   **Old structure (single `.md` file):**
+   - Read the file fully. Summarize the module's purpose, key models, and any important rules or constraints in 3–5 bullet points.
+
+   **No:** Ask: "Please provide the correct file path." Then read that file and summarize as above.
+
+   **Don't have one:** Acknowledge and continue without context. Suggest running `/scaffold` to set up the structure.
 
 5. After loading the primary context, ask:
    ```
@@ -31,7 +48,7 @@ Load the module context file before starting any work.
    1. Yes
    2. No
    ```
-   - **1. Yes** — Ask: "What is the reference module directory?" Then search for its context `.md` file and confirm the same way as steps 2–3. Read it and note it as **read-only reference** — development only happens in the primary module. Summarize the reference module in 2–3 bullet points. Then ask again: "Any other reference module?" — keep repeating this loop until the user says No.
+   - **1. Yes** — Ask for the reference module directory. Detect its structure the same way (new: load `_overview.md` + `interface.md` if exists; old: load single `.md`). Mark it as **read-only reference**. Summarize in 2–3 bullet points. Then ask again — keep looping until the user says No.
    - **2. No** — Proceed directly.
 
 ## Notes

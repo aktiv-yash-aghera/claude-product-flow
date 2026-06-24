@@ -53,7 +53,8 @@ Single entry point for any development task. Accepts any input — detailed or t
    - Source version and target version?
    - Are there known structural differences between versions in this area?
 
-4. Cross-check what is already known from the loaded context file — do not ask for anything already covered there.
+4. Cross-check what is already known from the loaded context — do not ask for anything already covered there.
+   If new folder structure is in use: check `_overview.md` for module-level facts and `<area>/<feature>/context.md` for feature-level facts before asking.
 
 5. If critical information is missing — ask only the missing pieces, maximum 3 questions, in one message, one line each. Prioritize the most blocking gaps first.
 
