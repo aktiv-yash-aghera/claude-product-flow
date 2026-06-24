@@ -2,44 +2,49 @@ Load the module context before starting any work.
 
 ## Steps
 
-1. First ask the user for the development directory:
+1. Ask the user for the development directory:
    ```
    What is the development directory?
    (Press Enter to use current directory: <current working directory>)
    ```
-   If the user presses Enter or provides no input, use the current working directory.
 
-2. Search that directory for a context file. Check in this order:
-   - `_overview.md` — new folder structure
-   - Any `.md` file matching the module name (e.g. `ak_odoo_cpq_custom.md`) — old structure
-   - Ignore `README.md`, `CHANGELOG.md`
-
-3. Always confirm with the user — never silently load a file:
+2. Ask what they are working on:
    ```
-   Found: `<filename>`
-   Is this the right context file?
-   1. Yes
-   2. No
-   3. Don't have a context file
+   What are you working on? (e.g. "hide rule", "assignment flow", "exclude from screen")
+   Press Enter to skip
    ```
 
-4. Based on the response:
-   - **1. Yes** — Read the file fully. Summarize the module's purpose, key models, and any important rules or constraints in 3–5 bullet points.
-   - **2. No** — Ask: "Please provide the correct file path." Then read that file and summarize as above.
-   - **3. Don't have a context file** — Acknowledge and continue without context. Suggest running `/scaffold` to set up the structure.
+3. If the user named a feature — look for a matching feature context file first:
+   - Search the directory for `<area>/<feature>/context.md` matching the description
+   - If found, read it immediately. Summarize in 2–3 bullet points.
+   - If not found, continue to step 4 without asking further.
 
-5. After loading the primary context, ask:
+4. Then load the module-level context file:
+   - Check for `_overview.md` first, then a single `.md` matching the module name. Ignore `README.md`, `CHANGELOG.md`.
+   - Confirm with user:
+     ```
+     Found: `<filename>` — is this the right context file?
+     1. Yes
+     2. No
+     3. Don't have a context file
+     ```
+   - **Yes** — Read fully. Summarize purpose and key areas in 3–5 bullet points.
+   - **No** — Ask for correct path. Read and summarize.
+   - **Don't have one** — Acknowledge and continue. Suggest `/scaffold` to set up structure.
+
+5. Ask about reference or dependency modules:
    ```
    Is there a reference or dependency module I should also be aware of?
    1. Yes
    2. No
    ```
-   - **1. Yes** — Ask: "What is the reference module directory?" Then search for its context file the same way as steps 2–3. Read it and note it as **read-only reference** — development only happens in the primary module. Summarize in 2–3 bullet points. Then ask again — keep looping until the user says No.
-   - **2. No** — Proceed directly.
+   - **Yes** — Ask for the directory. Find and read its context file. Mark as **read-only reference**. Summarize in 2–3 bullet points. Loop until user says No.
+   - **No** — Proceed.
 
 ## Notes
 
-- If multiple `.md` files are found, list all and let the user pick.
-- Keep summaries concise — this is orientation, not documentation.
-- The reference module is read-only — make this clear so no edits are made there.
-- After loading all context, confirm you are ready: "Context loaded. What are we working on?"
+- Feature context loads before module overview — AI has specific detail before broad context.
+- If multiple `.md` files found, list all and let user pick.
+- Keep summaries concise — orientation, not documentation.
+- Reference module is read-only — make this clear.
+- After all context loaded: "Context loaded. What are we working on?"
